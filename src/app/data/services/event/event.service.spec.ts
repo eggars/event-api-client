@@ -16,4 +16,12 @@ describe('EventService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  xit('getEvents() calls correct endpoint', () => {
+    const expected = '/api/events/getEvents';
+  });
+
+  xit('getEvents() calls correct endpoint', () => {
+    const expected = '/api/events/getEvent';
+  });
 });

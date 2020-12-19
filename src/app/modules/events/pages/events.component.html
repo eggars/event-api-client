@@ -1,1 +1,14 @@
-<pre>{{ events | json }}</pre>
+<div class="row">
+  <div class="col-6">
+    <ul>
+      <li *ngFor="let event of events" (click)="selectEvent(event)">
+        <pre>
+          {{ event | json }}
+        </pre>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedEvent" class="col-6">
+    <pre (click)="resetSelectedEvent()">{{ selectedEvent | json }}</pre>
+  </div>
+</div>
