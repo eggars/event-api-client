@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientIdInterceptor } from './core/interceptors/client-id.interceptor';
-import { ClientTrackingService } from './services/client-tracking/client-tracking.service';
+import { ClientTrackingService } from './data/services/client-tracking/client-tracking.service';
 
 @NgModule({
   declarations: [

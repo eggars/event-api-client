@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Venue } from 'src/app/data/models/venue.interface';
-import { EventService } from 'src/app/services/event/event.service';
+import { EventService } from 'src/app/data/services/event/event.service';
 
 @Component({
   selector: 'app-event',

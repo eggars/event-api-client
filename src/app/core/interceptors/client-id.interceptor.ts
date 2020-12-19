@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ClientTrackingService } from 'src/app/services/client-tracking/client-tracking.service';
+import { ClientTrackingService } from 'src/app/data/services/client-tracking/client-tracking.service';
 
 @Injectable()
 export class ClientIdInterceptor implements HttpInterceptor {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClientTrackingService } from './services/client-tracking/client-tracking.service';
+import { ClientTrackingService } from './data/services/client-tracking/client-tracking.service';
 
 @Component({
   selector: 'app-root',
