@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Venue } from 'src/app/data/models/venue.interface';
 import { EventService } from '@data/services/';
+import { compareDate } from 'src/app/core/helpers/sort-functions/date.comparer';
 
 @Component({
   selector: 'app-event',
@@ -14,7 +15,9 @@ export class EventsComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
-    this.eventService.getEvents().subscribe(res => this.events = res);
+    this.eventService.getEvents().subscribe(res => {
+      this.events = res.sort(compareDate('desc'));
+    });
   }
 
   public selectEvent(event: Venue): void {

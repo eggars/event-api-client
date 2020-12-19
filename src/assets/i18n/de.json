@@ -3,6 +3,10 @@
     "buy-tickets": "Tickets bestellen"
   },
   "tooltips": {
-    "buy-tickets": "Hint: bla-blup!"
+  },
+  "labels": {
+    "event": {
+      "motto": "Motto"
+    }
   }
 }

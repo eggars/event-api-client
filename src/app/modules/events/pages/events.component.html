@@ -1,18 +1,18 @@
-<div class="row">
-  <div class="col-6">
-    <ul>
-      <li *ngFor="let event of events" (click)="selectEvent(event)">
-        <pre>
-          {{ event | json }}
-        </pre>
-      </li>
-    </ul>
-  </div>
-  <div *ngIf="selectedEvent" class="col-6">
-    <pre (click)="resetSelectedEvent()">{{ selectedEvent | json }}</pre>
+<div class="timeline">
+  <ng-container *ngFor='let event of events; let i = index'>
+    <div class="event-container" [ngClass]="{ left: i%2 !== 0, right: i%2 === 0, active: event === selectedEvent }">
+      <div class="content" (click)="event !== selectedEvent ? selectEvent(event) : null">
+        <p>{{ event.date | fullDateTime }}</p>
+        <h2>{{ event.band }}</h2>
+        <p>{{ 'labels.event.motto' | translate }}: {{ event.motto }}</p>
+      </div>
+      <div *ngIf="event === selectedEvent" class="content additional-content">
+        <pre (click)="resetSelectedEvent()">{{ selectedEvent | json }}</pre>
 
-    <button type="button" class="btn btn-primary" [tooltip]="'tooltips.buy-tickets' | translate">
-      {{ 'buttons.buy-tickets' | translate }}
-    </button>
-  </div>
+        <button type="button" class="btn btn-primary" [tooltip]="'tooltips.buy-tickets' | translate">
+          {{ 'buttons.buy-tickets' | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
 </div>

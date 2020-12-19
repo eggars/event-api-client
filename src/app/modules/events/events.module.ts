@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './pages/events.component';
-import { CoreModule } from 'src/app/core/core/core.module';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { DateTimeFormatPipe } from 'src/app/core/pipes/full-date-time.pipe';
+import { BaseModule } from 'src/app/core/base.module';
 
 
 @NgModule({
-  declarations: [EventsComponent],
+  declarations: [EventsComponent, DateTimeFormatPipe],
   imports: [
     CommonModule,
-    CoreModule,
     EventsRoutingModule,
+    BaseModule,
     TooltipModule.forRoot()
   ]
 })

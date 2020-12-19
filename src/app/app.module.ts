@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TranslateModule } from '@ngx-translate/core';
-import { TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientIdInterceptor } from './core/interceptors/client-id.interceptor';
 import { ClientTrackingService } from '@data/services/';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,13 +15,7 @@ import { ClientTrackingService } from '@data/services/';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    })
+    CoreModule.forRoot()
   ],
   providers: [
     {
@@ -36,8 +28,3 @@ import { ClientTrackingService } from '@data/services/';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// tslint:disable-next-line: typedef
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
