@@ -19,7 +19,7 @@
           </ul>
         </ng-container>
 
-        <button type="button" class="btn btn-primary w-100" [tooltip]="'tooltips.buy-tickets' | translate">
+        <button [routerLink]="['/events', event.band]" type="button" class="btn btn-primary w-100" [tooltip]="'tooltips.buy-tickets' | translate">
           {{ 'buttons.buy-tickets' | translate }}
         </button>
       </div>
