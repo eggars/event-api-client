@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { EventsComponent } from './events.component';
 
@@ -8,7 +9,8 @@ describe('EventsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventsComponent ]
+      declarations: [ EventsComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });
