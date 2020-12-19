@@ -1,0 +1,8 @@
+{
+  "buttons": {
+    "buy-tickets": "Tickets bestellen"
+  },
+  "tooltips": {
+    "buy-tickets": "Hint: bla-blup!"
+  }
+}

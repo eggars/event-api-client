@@ -10,5 +10,9 @@
   </div>
   <div *ngIf="selectedEvent" class="col-6">
     <pre (click)="resetSelectedEvent()">{{ selectedEvent | json }}</pre>
+
+    <button type="button" class="btn btn-primary" [tooltip]="'tooltips.buy-tickets' | translate">
+      {{ 'buttons.buy-tickets' | translate }}
+    </button>
   </div>
 </div>
