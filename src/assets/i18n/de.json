@@ -6,7 +6,9 @@
   },
   "labels": {
     "event": {
-      "motto": "Motto"
+      "motto": "Motto",
+      "homepage": "Homepage",
+      "vorbands": "Vorbands"
     }
   }
 }

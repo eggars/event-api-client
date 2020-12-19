@@ -59,8 +59,15 @@ $active-event-highlight-color: #FF9F55;
       }
     }
 
-    &.active::after {
-      border-color: $active-event-highlight-color;
+    &.active {
+      &::after{
+        border-color: $active-event-highlight-color;
+      }
+
+      .content{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
 
     &.right {
@@ -77,13 +84,28 @@ $active-event-highlight-color: #FF9F55;
       }
     }
 
-    .content {
-      padding: 20px 30px;
+    .content, .additional-content {
       background-color: $on-default-bg;
-      position: relative;
       border-radius: 6px;
+      position: relative;
+      padding: 20px 30px;
+    }
+
+    .content {
       &:hover{
         cursor: pointer;
+      }
+
+      + .additional-content {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-top: 0;
+      }
+    }
+
+    &.active {
+      .content:hover {
+        cursor: default;
       }
     }
   }

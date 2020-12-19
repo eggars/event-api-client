@@ -4,12 +4,22 @@
       <div class="content" (click)="event !== selectedEvent ? selectEvent(event) : null">
         <p>{{ event.date | fullDateTime }}</p>
         <h2>{{ event.band }}</h2>
-        <p>{{ 'labels.event.motto' | translate }}: {{ event.motto }}</p>
+        <p class="mb-0">{{ 'labels.event.motto' | translate }}: {{ event.motto }}</p>
       </div>
-      <div *ngIf="event === selectedEvent" class="content additional-content">
-        <pre (click)="resetSelectedEvent()">{{ selectedEvent | json }}</pre>
+      <div *ngIf="event === selectedEvent" class="additional-content">
+        <p>
+          {{ 'labels.event.homepage' | translate }}:
+          <a target="_blank" [href]="event.homepage">{{ event.homepage || 'hier' }}</a>
+        </p>
 
-        <button type="button" class="btn btn-primary" [tooltip]="'tooltips.buy-tickets' | translate">
+        <ng-container *ngIf="!!event.vorbands?.length">
+          <p class="mb-0">{{ 'labels.event.vorbands' | translate }}:</p>
+          <ul>
+            <li *ngFor="let b of event.vorbands">{{b.band}}</li>
+          </ul>
+        </ng-container>
+
+        <button type="button" class="btn btn-primary w-100" [tooltip]="'tooltips.buy-tickets' | translate">
           {{ 'buttons.buy-tickets' | translate }}
         </button>
       </div>
