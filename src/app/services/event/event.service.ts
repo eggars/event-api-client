@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { EventApiResponse } from '../data/models/event-api-response.interface';
-import { Venue, VenueListResponse } from '../data/models/venue.interface';
+import { EventApiResponse } from '../../data/models/event-api-response.interface';
+import { Venue, VenueListResponse } from '../../data/models/venue.interface';
 
 @Injectable({
   providedIn: 'root'
