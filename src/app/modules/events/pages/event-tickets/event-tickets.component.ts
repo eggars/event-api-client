@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PaymentOptions } from '@data/enums/payment-options.enum';
 import { Salutation } from '@data/enums/salutation.enum';
 import { Venue } from '@data/models';
@@ -23,9 +23,9 @@ export class EventTicketsComponent implements OnInit {
   public enabledPaymentOptions = [PaymentOptions.DIRECT_TRANSFER];
   public orderSubmitSuccess = false;
   public orderId = '';
+  public copySuccessMessage = '';
   private minAllowedAge = 18;
   private maxAllowedAge = 100;
-  private paymentOptionsEnum = PaymentOptions;
 
   public get minAllowedDate(): Date {
     const currentDate = new Date();
@@ -36,6 +36,8 @@ export class EventTicketsComponent implements OnInit {
     const currentDate = new Date();
     return new Date(currentDate.setFullYear(currentDate.getFullYear() - this.minAllowedAge));
   }
+
+  public get currentUrl(): string { return window.location.href; }
 
   public get f() { return this.ticketsForm.controls; }
 
@@ -86,8 +88,11 @@ export class EventTicketsComponent implements OnInit {
   }
 
   public getHintFor(paymentOption: PaymentOptions): string {
-    console.log('oops');
     return this.enabledPaymentOptions.includes(paymentOption) ? '' : this.translateService.instant('tooltips.paymentOptionDisabled');
+  }
+
+  public notify(): void {
+    this.copySuccessMessage = this.translateService.instant('labels.shared.urlCopied');
   }
 
   private initForm(): void {

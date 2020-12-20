@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { AlertModule } from 'ngx-bootstrap/alert';
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './pages/events.component';
 import { DateTimeFormatPipe } from 'src/app/core/pipes/full-date-time.pipe';
@@ -18,6 +19,7 @@ import { FormErrorsForComponent } from 'src/app/shared/components/form-errors-fo
     CommonModule,
     EventsRoutingModule,
     BaseModule,
+    AlertModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot()

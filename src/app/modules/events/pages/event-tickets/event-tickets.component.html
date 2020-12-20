@@ -95,4 +95,13 @@
       </p>
     </div>
   </ng-container>
+
+  <alert *ngIf="!!copySuccessMessage" [dismissible]="true" type="success" class="fake-notification" (onClosed)="copySuccessMessage = '';">
+    {{copySuccessMessage}}
+  </alert>
+
+  <button [copy-clipboard]="currentUrl" (copied)="notify()"
+    class="btn btn-secondary copy-url" tooltip="{{ 'tooltips.copy-address' | translate }}">
+    {{ 'buttons.copy-url' | translate }}
+  </button>
 </div>
