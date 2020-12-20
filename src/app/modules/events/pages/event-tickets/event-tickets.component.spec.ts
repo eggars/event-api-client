@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { EventsModule } from '../../events.module';
 
 import { EventTicketsComponent } from './event-tickets.component';
 
@@ -8,7 +12,9 @@ describe('EventTicketsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventTicketsComponent ]
+      declarations: [ EventTicketsComponent ],
+      imports: [ReactiveFormsModule, TranslateModule.forRoot(), HttpClientTestingModule, EventsModule],
+      providers: []
     })
     .compileComponents();
   });

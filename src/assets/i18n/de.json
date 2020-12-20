@@ -1,14 +1,60 @@
 {
+  "enums": {
+    "salutation": {
+      "MRS": "Frau",
+      "MR": "Herr"
+    },
+    "paymentOptions": {
+      "DIRECT_TRANSFER": "Vorkasse",
+      "PAYPAL": "Paypal"
+    }
+  },
   "buttons": {
     "buy-tickets": "Tickets bestellen"
   },
   "tooltips": {
+    "paymentOptionDisabled": "Momentan nicht verfügbar"
   },
   "labels": {
     "event": {
       "motto": "Motto",
       "homepage": "Homepage",
       "vorbands": "Vorbands"
+    }
+  },
+  "forms": {
+    "labels": {
+      "submit": "Jetzt Bestellen",
+      "notSelected": "",
+      "selectOne": "Bitte auswählen",
+      "salutation": "Anrede",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail-Adresse",
+      "dateOfBirth": "Geburtsdatum",
+      "ticketCount": "Ticketanzahl",
+      "paymentOption": "Bezahlmöglichkeiten"
+    },
+    "placeholders": {
+      "firstName": "z.B. Maxine",
+      "lastName": "z.B. Musterfrau",
+      "email": "z.B. maxine.musterfrau@outlook.com",
+      "dateOfBirth": "TT.MM.YYYY",
+      "ticketCount": "0"
+    },
+    "successMessages": {
+      "orderPlaced": "Bestätigung. Bestellung: {{orderId}}"
+    },
+    "errorMessages": {
+      "shared": {
+        "required": "Dies ist ein Pflichtfeld",
+        "pattern": "Die Eingabe enthält nicht erlaubte Zeichen",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein!",
+        "minAge": "Mindestalter von {{value}} Jahren nicht erreicht",
+        "maxAge": "Maximal erlaubtes Alter von {{value}} Jahren überschritten",
+        "max": "Ein Wert größer als {{max}} ist nicht erlaubt!",
+        "min": "Ein Wert kleiner als {{min}} ist nicht erlaubt!"
+      }
     }
   }
 }

@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { EventApiResponse, Venue, VenueItemResponse, VenueListResponse } from '@data/models/';
+import { ApiResponse, Venue, VenueItemResponse, VenueListResponse } from '@data/models/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
+  public selectedEvent$: BehaviorSubject<Venue> = new BehaviorSubject({} as Venue);
   private apiRoot = '/api';
   private serviceRoot = '/events';
 
@@ -18,8 +19,8 @@ export class EventService {
   public getEvents(): Observable<Venue[]> {
     const path = `${this.rootPath}/getEvents`;
 
-    return this.http.post<EventApiResponse<VenueListResponse>>(path, {})
-      .pipe(map((response: EventApiResponse<VenueListResponse>) => {
+    return this.http.post<ApiResponse<VenueListResponse>>(path, {})
+      .pipe(map((response: ApiResponse<VenueListResponse>) => {
         return response.Result.events;
       }));
   }
@@ -27,9 +28,13 @@ export class EventService {
   public getEvent(): Observable<Venue> {
     const path = `${this.rootPath}/getEvent`;
 
-    return this.http.post<EventApiResponse<VenueItemResponse>>(path, {})
-      .pipe(map((response: EventApiResponse<VenueItemResponse>) => {
+    return this.http.post<ApiResponse<VenueItemResponse>>(path, {})
+      .pipe(map((response: ApiResponse<VenueItemResponse>) => {
         return response.Result.event;
       }));
+  }
+
+  public setSelectEvent(event: Venue): void {
+    this.selectedEvent$.next(event);
   }
 }

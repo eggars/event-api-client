@@ -1,0 +1,23 @@
+.invalid-feedback {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 0;
+    padding: 0 0.5rem 0 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 0;
+      margin: 0.25rem 0;
+      width: inherit;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+}

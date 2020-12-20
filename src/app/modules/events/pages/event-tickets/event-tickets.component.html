@@ -1,1 +1,98 @@
-<p>event-tickets works!</p>
+<div class="order-page">
+  <h3>{{ selectedEvent?.band }}</h3>
+  <p>{{ selectedEvent?.date | fullDateTime }}</p>
+  <hr class="my-4">
+  <form [formGroup]="ticketsForm" *ngIf="ticketsForm && !orderSubmitSuccess" (ngSubmit)="formSubmit()">
+    <div class="form-group row">
+      <label for="salutation" class="col-form-label col-12 col-sm-3">{{ 'forms.labels.salutation' | translate }}</label>
+      <div class="col-12 col-sm-3">
+        <select class="form-control" [ngClass]="{ 'is-invalid': isInvalid(f.salutation)}">
+          <option>{{ 'forms.labels.notSelected' | translate }}</option>
+          <option *ngFor="let opt of salutationOptions" [value]="opt">
+            {{ enumTranslation('salutation', opt) }}
+          </option>
+        </select>
+        <app-form-errors-for [control]="f.salutation"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="firstName" class="col-form-label col-12 col-sm-3">{{ labelFor('firstName') }}</label>
+      <div class="col-12 col-sm-9 col-md-6">
+        <input formControlName="firstName"
+          class="form-control" type="text" [placeholder]="placeholderFor('firstName')"
+          [ngClass]="{ 'is-invalid': isInvalid(f.firstName) }">
+        <app-form-errors-for [control]="f.firstName"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="lastName" class="col-form-label col-12 col-sm-3">{{ labelFor('lastName') }}</label>
+      <div class="col-12 col-sm-9 col-md-6">
+        <input formControlName="lastName" class="form-control" type="text"
+          [placeholder]="placeholderFor('lastName')" [ngClass]="{ 'is-invalid': isInvalid(f.lastName)}">
+        <app-form-errors-for [control]="f.lastName"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-form-label col-12 col-sm-3">{{ labelFor('email') }}</label>
+      <div class="col-12 col-sm-9 col-md-6">
+        <input formControlName="email" class="form-control" type="text"
+          [placeholder]="placeholderFor('email')" [ngClass]="{ 'is-invalid': isInvalid(f.email)}">
+          <app-form-errors-for [control]="f.email"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="dateOfBirth" class="col-form-label col-12 col-sm-3">{{ labelFor('dateOfBirth') }}</label>
+      <div class="col-12 col-sm-9 col-md-6">
+        <input type="text" [placeholder]="placeholderFor('dateOfBirth')" formControlName="dateOfBirth"
+          class="form-control" bsDatepicker [minDate]="minAllowedDate"
+          [maxDate]="maxAllowedDate"  [ngClass]="{ 'is-invalid': isInvalid(f.dateOfBirth)}">
+          <app-form-errors-for [control]="f.dateOfBirth"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="ticketCount" class="col-form-label col-12 col-sm-3">{{ labelFor('ticketCount') }}</label>
+      <div class="col-12 col-sm-3">
+        <input formControlName="ticketCount" class="form-control" type="number" min="1" max="5"
+          [placeholder]="placeholderFor('ticketCount')"  [ngClass]="{ 'is-invalid': isInvalid(f.ticketCount)}">
+          <app-form-errors-for [control]="f.ticketCount"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="paymentOption" class="col-form-label col-12 col-sm-3">{{ labelFor('paymentOption') }}</label>
+      <div class="col-12 col-sm-9">
+        <div class="btn-group" btnRadioGroup formControlName="paymentOption">
+          <label *ngFor="let opt of paymentOptions"
+            class="btn btn-secondary" [btnRadio]="opt"
+            [disabled]="!enabledPaymentOptions.includes(opt)"
+            [tooltip]="getHintFor(opt)">
+            {{ enumTranslation('paymentOptions', opt) }}
+          </label>
+        </div>
+        <app-form-errors-for [control]="f.paymentOption"></app-form-errors-for>
+      </div>
+    </div>
+
+    <div class="row mt-4 mb-0">
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100">
+          {{ 'forms.labels.submit' | translate}}
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+  <ng-container *ngIf="orderSubmitSuccess">
+    <div class="alert alert-success">
+      <p class="mb-0">
+        {{ 'forms.successMessages.orderPlaced' | translate:{orderId: orderId} }}
+      </p>
+    </div>
+  </ng-container>
+</div>

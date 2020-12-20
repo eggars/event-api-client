@@ -1,0 +1,31 @@
+<ng-container *ngIf="control && control.errors && (control.dirty || control.touched)">
+  <ul class="invalid-feedback">
+    <li *ngIf="control.errors.required">
+      <small>{{"forms.errorMessages.shared.required" | translate}}</small>
+    </li>
+    <li *ngIf="control.errors.pattern">
+      <small>{{"forms.errorMessages.shared.pattern" | translate}}</small>
+    </li>
+    <li *ngIf="control.errors.min">
+      <small>{{ "forms.errorMessages.shared.min" | translate:{ min: control.errors.min.min} }}</small>
+    </li>
+    <li *ngIf="control.errors.max">
+      <small>{{ "forms.errorMessages.shared.max" | translate:{ max: control.errors.max.max} }}</small>
+    </li>
+    <li *ngIf="control.errors.email">
+      <small>{{"forms.errorMessages.shared.email" | translate}}</small>
+    </li>
+    <li *ngIf="control.errors.invalidDate">
+      <small>{{"forms.errorMessages.shared.invalidDate" | translate}}</small>
+    </li>
+    <li *ngIf="control.errors.apiValidationError">
+      <small>{{ control.errors.apiValidationError }}</small>
+    </li>
+    <li *ngIf="control.errors.minAge">
+      <small>{{ "forms.errorMessages.shared.minAge" | translate:{ value: control.errors.minAge} }}</small>
+    </li>
+    <li *ngIf="control.errors.maxAge">
+      <small>{{ "forms.errorMessages.shared.maxAge" | translate:{ value: control.errors.maxAge} }}</small>
+    </li>
+  </ul>
+</ng-container>
