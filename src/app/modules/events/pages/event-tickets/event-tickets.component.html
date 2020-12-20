@@ -78,6 +78,77 @@
       </div>
     </div>
 
+    <div class="form-group row">
+      <label for="emailDelivery" class="col-form-label col-12 col-sm-3">{{ labelFor('emailDelivery') }}</label>
+      <div class="col-12 col-sm-9 form-control custom-form-control">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="emailDelivery" [value]="true">
+          <label class="form-check-label" for="inlineRadio1">E-Mail</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" formControlName="emailDelivery" [value]="false">
+          <label class="form-check-label" for="inlineRadio2">Post</label>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="!f.emailDelivery.value" formGroupName="deliveryAddress">
+      <div class="form-group row">
+        <label for="co" class="col-form-label col-12 col-sm-3">{{ labelFor('co') }}</label>
+        <div class="col-12 col-sm-9 col-md-6">
+          <input formControlName="co"
+            class="form-control" type="text" [placeholder]="placeholderFor('co')"
+            [ngClass]="{ 'is-invalid': isInvalid(deliveryAddress.co) }">
+          <app-form-errors-for [control]="deliveryAddress.co"></app-form-errors-for>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="mailBox" class="col-form-label col-12 col-sm-3">{{ labelFor('mailBox') }}</label>
+        <div class="col-12 col-sm-9 col-md-6">
+          <input formControlName="mailBox"
+            class="form-control" type="text" [placeholder]="placeholderFor('mailBox')"
+            [ngClass]="{ 'is-invalid': isInvalid(deliveryAddress.mailBox) }">
+          <app-form-errors-for [control]="deliveryAddress.mailBox"></app-form-errors-for>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="street" class="col-form-label col-12 col-sm-3">{{ labelFor('street') }}</label>
+        <div class="col-12 col-sm-9 col-md-6">
+          <input formControlName="street"
+            class="form-control" type="text" [placeholder]="placeholderFor('street')"
+            [ngClass]="{ 'is-invalid': isInvalid(deliveryAddress.street) }">
+          <app-form-errors-for [control]="deliveryAddress.street"></app-form-errors-for>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="houseNumber" class="col-form-label col-12 col-sm-3">{{ labelFor('houseNumber') }}</label>
+        <div class="col-12 col-sm-9 col-md-6">
+          <input formControlName="houseNumber"
+            class="form-control" type="text" [placeholder]="placeholderFor('houseNumber')"
+            [ngClass]="{ 'is-invalid': isInvalid(deliveryAddress.houseNumber) }">
+          <app-form-errors-for [control]="deliveryAddress.houseNumber"></app-form-errors-for>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="postalCode" class="col-form-label col-12 col-sm-3">{{ labelFor('postalCode') }}</label>
+        <div class="col-12 col-sm-9 col-md-6">
+          <input formControlName="postalCode"
+            class="form-control" type="text" [placeholder]="placeholderFor('postalCode')"
+            [ngClass]="{ 'is-invalid': isInvalid(deliveryAddress.postalCode) }">
+          <app-form-errors-for [control]="deliveryAddress.postalCode"></app-form-errors-for>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="city" class="col-form-label col-12 col-sm-3">{{ labelFor('city') }}</label>
+        <div class="col-12 col-sm-9 col-md-6">
+          <input formControlName="city"
+            class="form-control" type="text" [placeholder]="placeholderFor('city')"
+            [ngClass]="{ 'is-invalid': isInvalid(deliveryAddress.city) }">
+          <app-form-errors-for [control]="deliveryAddress.city"></app-form-errors-for>
+        </div>
+      </div>
+    </ng-container>
+
     <div class="row mt-4 mb-0">
       <div class="col-12">
         <button type="submit" class="btn btn-primary w-100">

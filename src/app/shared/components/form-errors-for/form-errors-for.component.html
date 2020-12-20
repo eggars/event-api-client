@@ -12,6 +12,9 @@
     <li *ngIf="control.errors.max">
       <small>{{ "forms.errorMessages.shared.max" | translate:{ max: control.errors.max.max} }}</small>
     </li>
+    <li *ngIf="control.errors.maxlength">
+       <small>{{ "forms.errorMessages.shared.maxLength" | translate:{ actualLength: control.errors.maxlength.actualLength, maxLength: control.errors.maxlength.requiredLength  } }}</small>
+    </li>
     <li *ngIf="control.errors.email">
       <small>{{"forms.errorMessages.shared.email" | translate}}</small>
     </li>

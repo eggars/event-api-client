@@ -2,9 +2,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { CopyClipboardDirective } from '../shared/directives/copy-clipboard.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [CopyClipboardDirective],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -14,7 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    CopyClipboardDirective
   ],
   providers: [
     DatePipe

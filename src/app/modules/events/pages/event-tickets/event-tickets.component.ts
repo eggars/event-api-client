@@ -41,6 +41,8 @@ export class EventTicketsComponent implements OnInit {
 
   public get f() { return this.ticketsForm.controls; }
 
+  public get deliveryAddress() { return (this.f.deliveryAddress as FormGroup).controls; }
+
   constructor(
     private fb: FormBuilder,
     private translateService: TranslateService,
@@ -103,7 +105,16 @@ export class EventTicketsComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       dateOfBirth: [null, [Validators.required, minAgeValidator(this.minAllowedAge), maxAgeValidator(this.maxAllowedAge)]],
       ticketCount: [null, [Validators.required, Validators.min(1), Validators.max(5)]],
-      paymentOption: ['', [Validators.required]]
+      paymentOption: [null, [Validators.required]],
+      emailDelivery: [true],
+      deliveryAddress: this.fb.group({
+        co: [],
+        mailBox: [],
+        street: [],
+        houseNumber: [],
+        postalCode: [null, [Validators.required, Validators.maxLength(5)]],
+        city: [null, [Validators.required]]
+      })
     });
   }
 

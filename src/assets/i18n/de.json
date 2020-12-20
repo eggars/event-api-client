@@ -10,12 +10,17 @@
     }
   },
   "buttons": {
-    "buy-tickets": "Tickets bestellen"
+    "buy-tickets": "Tickets bestellen",
+    "copy-url": "Link kopieren"
   },
   "tooltips": {
-    "paymentOptionDisabled": "Momentan nicht verfügbar"
+    "paymentOptionDisabled": "Momentan nicht verfügbar",
+    "copy-address": "this is a hint"
   },
   "labels": {
+    "shared": {
+      "urlCopied": "Die Adresse wurde in den Zwischenspeicher kopiert"
+    },
     "event": {
       "motto": "Motto",
       "homepage": "Homepage",
@@ -33,14 +38,27 @@
       "email": "E-Mail-Adresse",
       "dateOfBirth": "Geburtsdatum",
       "ticketCount": "Ticketanzahl",
-      "paymentOption": "Bezahlmöglichkeiten"
+      "paymentOption": "Bezahlmöglichkeiten",
+      "emailDelivery": "Versand",
+      "co": "c/o",
+      "mailBox": "Postfach",
+      "street": "Straße",
+      "houseNumber": "Hausnummer",
+      "postalCode": "Postleitzehl",
+      "city": "Ort"
     },
     "placeholders": {
       "firstName": "z.B. Maxine",
       "lastName": "z.B. Musterfrau",
       "email": "z.B. maxine.musterfrau@outlook.com",
       "dateOfBirth": "TT.MM.YYYY",
-      "ticketCount": "0"
+      "ticketCount": "0",
+      "co": "c/o",
+      "mailBox": "Postfach",
+      "street": "Straße",
+      "houseNumber": "Hausnummer",
+      "postalCode": "Postleitzehl",
+      "city": "Ort"
     },
     "successMessages": {
       "orderPlaced": "Bestätigung. Bestellung: {{orderId}}"
@@ -53,7 +71,8 @@
         "minAge": "Mindestalter von {{value}} Jahren nicht erreicht",
         "maxAge": "Maximal erlaubtes Alter von {{value}} Jahren überschritten",
         "max": "Ein Wert größer als {{max}} ist nicht erlaubt!",
-        "min": "Ein Wert kleiner als {{min}} ist nicht erlaubt!"
+        "min": "Ein Wert kleiner als {{min}} ist nicht erlaubt!",
+        "maxLength": "Die maximale Länge der Eingabe (aktuell: {{actualLength}}) darf {{maxLength}} Zeichen nicht überschreiten."
       }
     }
   }
