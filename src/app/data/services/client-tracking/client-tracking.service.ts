@@ -10,10 +10,5 @@ export class ClientTrackingService {
 
   public get clientId(): string { return this.clientId$.value; }
 
-  constructor() {
-    // TODO-ET: remove debug info later
-    this.clientId$.subscribe(res => {
-      console.log('client id changed to: ', this.clientId);
-    });
-  }
+  constructor() { }
 }
