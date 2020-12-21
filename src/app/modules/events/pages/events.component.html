@@ -1,4 +1,4 @@
-<div class="timeline">
+<div class="timeline" *ngIf="!!events?.length">
   <ng-container *ngFor='let event of events; let i = index'>
     <div class="event-container" [ngClass]="{ left: i%2 !== 0, right: i%2 === 0, active: event === selectedEvent }">
       <div class="content" (click)="event !== selectedEvent ? selectEvent(event) : null">
@@ -26,3 +26,6 @@
     </div>
   </ng-container>
 </div>
+<ng-container *ngIf="showError">
+  <p class="alert alert-danger text-center">{{ 'labels.shared.hitTheFan' | translate }}</p>
+</ng-container>

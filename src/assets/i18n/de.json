@@ -19,7 +19,8 @@
   },
   "labels": {
     "shared": {
-      "urlCopied": "Die Adresse wurde in den Zwischenspeicher kopiert"
+      "urlCopied": "Die Adresse wurde in den Zwischenspeicher kopiert",
+      "hitTheFan": "An error happened! Are you sure you started the API?"
     },
     "event": {
       "motto": "Motto",

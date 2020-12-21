@@ -12,7 +12,8 @@ import { Subscription } from 'rxjs';
 export class EventsComponent implements OnInit, OnDestroy {
   public events: Venue[] = [];
   public selectedEvent: Venue | undefined;
-  private subscription: Subscription | undefined;
+  private subscription!: Subscription;
+  public showError = false;
 
   constructor(private eventService: EventService) { }
 
@@ -22,7 +23,7 @@ export class EventsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   public selectEvent(event: Venue): void {
@@ -36,7 +37,10 @@ export class EventsComponent implements OnInit, OnDestroy {
 
   private getEvents(): void {
     this.eventService.getEvents().subscribe(res => {
+      this.showError = false;
       this.events = res.sort(compareDate('desc'));
+    }, error => {
+      this.showError = true;
     });
   }
 
