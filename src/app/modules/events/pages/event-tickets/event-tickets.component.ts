@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PaymentOptions } from '@data/enums/payment-options.enum';
 import { Salutation } from '@data/enums/salutation.enum';
 import { Venue } from '@data/models';
@@ -106,15 +106,18 @@ export class EventTicketsComponent implements OnInit {
       dateOfBirth: [null, [Validators.required, minAgeValidator(this.minAllowedAge), maxAgeValidator(this.maxAllowedAge)]],
       ticketCount: [null, [Validators.required, Validators.min(1), Validators.max(5)]],
       paymentOption: [null, [Validators.required]],
-      emailDelivery: [true],
-      deliveryAddress: this.fb.group({
-        co: [],
-        mailBox: [],
-        street: [],
-        houseNumber: [],
-        postalCode: [null, [Validators.required, Validators.maxLength(5)]],
-        city: [null, [Validators.required]]
-      })
+      emailDelivery: [{value: true, disabled: true}],
+      deliveryAddress: {
+        value: this.fb.group({
+          co: [],
+          mailBox: [],
+          street: [],
+          houseNumber: [],
+          postalCode: [null, [Validators.required, Validators.maxLength(5)]],
+          city: [null, [Validators.required]]
+        }),
+        disabled: true
+      }
     });
   }
 

@@ -25,4 +25,8 @@
     right: 50px;
     z-index: 1;
   }
+
+  .col-form-label.required::after {
+    content: ' *'
+  }
 }

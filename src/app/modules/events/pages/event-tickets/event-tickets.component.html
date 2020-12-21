@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="firstName" class="col-form-label col-12 col-sm-3">{{ labelFor('firstName') }}</label>
+      <label for="firstName" class="col-form-label col-12 col-sm-3 required">{{ labelFor('firstName') }}</label>
       <div class="col-12 col-sm-9 col-md-6">
         <input formControlName="firstName"
           class="form-control" type="text" [placeholder]="placeholderFor('firstName')"
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="lastName" class="col-form-label col-12 col-sm-3">{{ labelFor('lastName') }}</label>
+      <label for="lastName" class="col-form-label col-12 col-sm-3 required">{{ labelFor('lastName') }}</label>
       <div class="col-12 col-sm-9 col-md-6">
         <input formControlName="lastName" class="form-control" type="text"
           [placeholder]="placeholderFor('lastName')" [ngClass]="{ 'is-invalid': isInvalid(f.lastName)}">
@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="email" class="col-form-label col-12 col-sm-3">{{ labelFor('email') }}</label>
+      <label for="email" class="col-form-label col-12 col-sm-3 required">{{ labelFor('email') }}</label>
       <div class="col-12 col-sm-9 col-md-6">
         <input formControlName="email" class="form-control" type="text"
           [placeholder]="placeholderFor('email')" [ngClass]="{ 'is-invalid': isInvalid(f.email)}">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="dateOfBirth" class="col-form-label col-12 col-sm-3">{{ labelFor('dateOfBirth') }}</label>
+      <label for="dateOfBirth" class="col-form-label col-12 col-sm-3 required">{{ labelFor('dateOfBirth') }}</label>
       <div class="col-12 col-sm-9 col-md-6">
         <input type="text" [placeholder]="placeholderFor('dateOfBirth')" formControlName="dateOfBirth"
           class="form-control" bsDatepicker [minDate]="minAllowedDate"
@@ -55,7 +55,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="ticketCount" class="col-form-label col-12 col-sm-3">{{ labelFor('ticketCount') }}</label>
+      <label for="ticketCount" class="col-form-label col-12 col-sm-3 required">{{ labelFor('ticketCount') }}</label>
       <div class="col-12 col-sm-3">
         <input formControlName="ticketCount" class="form-control" type="number" min="1" max="5"
           [placeholder]="placeholderFor('ticketCount')"  [ngClass]="{ 'is-invalid': isInvalid(f.ticketCount)}">
@@ -64,7 +64,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="paymentOption" class="col-form-label col-12 col-sm-3">{{ labelFor('paymentOption') }}</label>
+      <label for="paymentOption" class="col-form-label col-12 col-sm-3 required">{{ labelFor('paymentOption') }}</label>
       <div class="col-12 col-sm-9">
         <div class="btn-group" btnRadioGroup formControlName="paymentOption">
           <label *ngFor="let opt of paymentOptions"
@@ -82,11 +82,11 @@
       <label for="emailDelivery" class="col-form-label col-12 col-sm-3">{{ labelFor('emailDelivery') }}</label>
       <div class="col-12 col-sm-9 form-control custom-form-control">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="emailDelivery" [value]="true">
+          <input class="form-check-input" type="radio" id="inlineRadio1" formControlName="emailDelivery" [value]="true">
           <label class="form-check-label" for="inlineRadio1">E-Mail</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="emailDelivery" [value]="false">
+        <div class="form-check form-check-inline disabled">
+          <input class="form-check-input" type="radio" formControlName="emailDelivery" id="inlineRadio2" [value]="false">
           <label class="form-check-label" for="inlineRadio2">Post</label>
         </div>
       </div>
@@ -165,6 +165,7 @@
         {{ 'forms.successMessages.orderPlaced' | translate:{orderId: orderId} }}
       </p>
     </div>
+    <button class="btn btn-primary" routerLink="/">zurück zur Übersicht</button>
   </ng-container>
 
   <alert *ngIf="!!copySuccessMessage" [dismissible]="true" type="success" class="fake-notification" (onClosed)="copySuccessMessage = '';">
